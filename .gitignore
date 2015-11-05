@@ -10,3 +10,4 @@ tmp/*
 coverage
 !.keep
 .ruby-gemset
+.idea
