@@ -11,6 +11,16 @@ gem 'napa'
 gem 'roar', '~> 0.12.0'
 gem 'grape-swagger'
 
+gem 'representable', '>= 2.1.4'
+
+
+# api_client stuff
+gem 'faraday'
+gem 'faraday_middleware'
+gem 'celluloid'
+gem 'celluloid-io'
+gem 'imprint'
+
 group :development,:test do
   gem 'pry'
 end
