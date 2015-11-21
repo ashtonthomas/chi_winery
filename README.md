@@ -9,3 +9,5 @@ Avoiding spec_helper:
 - TBD: best way to make blazing fast specs
 
 `bundle exec puma -C config/puma.rb`
+
+`bundle update --source gemname`

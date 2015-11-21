@@ -8,4 +8,9 @@ class WinesApi < Grape::API
     end
   end
 
+  desc 'just get it'
+  get do
+    represent Wine.all.first, with: WineRepresenter
+  end
+
 end
