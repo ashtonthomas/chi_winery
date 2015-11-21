@@ -16,17 +16,11 @@ Dir['./config/middleware/**/*.rb'].map { |file| require file }
 
 # autoload app
 relative_load_paths = %w(
-  app/orders/api
-  app/orders/operations
-  app/wines/api
-  app/wines/operations
-
-  app/wines/models
-
   app/api
 
-  lib
-  lib/api_client/wines/representers
+  app/orders
+  app/wines
 
+  lib/api_client
 )
 ActiveSupport::Dependencies.autoload_paths += relative_load_paths

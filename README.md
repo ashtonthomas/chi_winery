@@ -11,3 +11,19 @@ Avoiding spec_helper:
 `bundle exec puma -C config/puma.rb`
 
 `bundle update --source gemname`
+
+http://codetunes.com/2014/grape-part-II/
+
+```
+env = {}
+env['rack.input'] = Puma::NullIO.new
+env['REQUEST_METHOD'] = 'GET'
+env['REQUEST_PATH'] = '/orders/hello'
+env['REQUEST_URI'] = '/orders/hello'
+
+```
+
+I should just be able to call ApplicationApi.call(env)
+construct the env hash as normal
+and parse the response indifferent to whether we are going
+across the network or not

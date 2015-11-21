@@ -1,5 +1,7 @@
-class ApiClient::Orders < Client
+module ApiClient
+  class Orders
 
-  # url: localhost or a different url some-service.herokuapp.com
+    # url: localhost or a different url some-service.herokuapp.com
 
+  end
 end

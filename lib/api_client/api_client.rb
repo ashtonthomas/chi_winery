@@ -1,9 +1,10 @@
-require 'request'
+require_relative 'request'
 
 module ApiClient
-  require 'init'
+  require_relative 'init'
 
-  require 'orders/apis/orders'
+  require_relative 'orders/apis/orders'
+  require_relative 'wines/apis/wines'
 
   DISTRIBUTED_ENVIRONMENTS = %w(staging production)
 
