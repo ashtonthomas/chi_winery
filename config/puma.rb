@@ -35,3 +35,7 @@ end
 on_worker_shutdown do
   ActiveRecordConnection.teardown
 end
+
+on_worker_fork do
+  FileUtils.touch('/tmp/app-initialized')
+end
