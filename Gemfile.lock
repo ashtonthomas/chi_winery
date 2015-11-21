@@ -165,6 +165,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.11.3)
+      rack (>= 1.1, < 2.0)
     rack (1.5.5)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -252,6 +254,7 @@ DEPENDENCIES
   napa
   pg
   pry
+  puma (= 2.11.3)
   rack-cors
   rack-test
   representable (>= 2.4.0.rc1)

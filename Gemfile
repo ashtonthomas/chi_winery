@@ -21,6 +21,8 @@ gem 'celluloid'
 gem 'celluloid-io'
 gem 'imprint'
 
+gem 'puma', '2.11.3' # fixing version because the 2.12 revision has problems reporting to NewRelic
+
 group :development,:test do
   gem 'pry'
 end
