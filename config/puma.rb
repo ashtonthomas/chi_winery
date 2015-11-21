@@ -37,5 +37,6 @@ on_worker_shutdown do
 end
 
 on_worker_fork do
+  # let nginx know we are ready
   FileUtils.touch('/tmp/app-initialized')
 end
