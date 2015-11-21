@@ -11,7 +11,7 @@ gem 'napa'
 gem 'roar', '~> 0.12.0'
 gem 'grape-swagger'
 
-gem 'representable', '>= 2.1.4'
+gem 'representable', '>= 2.4.0.rc1'
 
 
 # api_client stuff

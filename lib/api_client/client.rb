@@ -3,6 +3,11 @@ class ApiClient::Client
 
   def self.issue_request(method:, url:, options:)
 
+    # To make this RESTful, we need to use a ServiceDocument??
+    # Would need to request, cache, and parse service_document in order to
+    # issue the actual request. One extra level of indirection...
+    # how would this work for HTML browser-based?
+
     request = Request.new(method: method, url: url, options: options)
     # request.call
 
