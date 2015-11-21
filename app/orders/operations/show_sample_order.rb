@@ -13,7 +13,7 @@ class ShowSampleOrder
   private
 
   def change_stuff
-    @name = "Cool #{name}"
+    @name = "Cool #{@name}"
   end
 
 end

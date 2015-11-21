@@ -7,3 +7,5 @@ http://jerodsanto.net/2011/07/building-multi-tenant-rails-apps-with-postgresql-s
 
 Avoiding spec_helper:
 - TBD: best way to make blazing fast specs
+
+`bundle exec puma -C config/puma.rb`
