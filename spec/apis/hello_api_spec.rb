@@ -4,7 +4,7 @@ def app
   ApplicationApi
 end
 
-describe HelloApi do
+describe OrdersApi do
   include Rack::Test::Methods
 
   describe 'GET /hello' do

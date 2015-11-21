@@ -1,4 +1,4 @@
-class HelloApi < Grape::API
+class OrdersApi < Grape::API
 
   resource :hello do
     desc 'Return a Hello World message'
