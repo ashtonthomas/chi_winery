@@ -5,6 +5,7 @@ module ApiClient
 
   require_relative 'orders/apis/orders'
   require_relative 'wines/apis/wines'
+  require_relative 'wines/representers/wine_representer'
 
   DISTRIBUTED_ENVIRONMENTS = %w(staging production)
 

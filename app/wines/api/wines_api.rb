@@ -11,7 +11,11 @@ module WinesComponent
 
     desc 'just get it'
     get do
-      represent Wine.all.first, with: WineRepresenter
+      # represent Wine.all.first, with: WineRepresenter
+      # include Grape::Roar::Representer
+      wine = Wine.all.first
+      wine.extend(WineRepresenter)
+      wine
     end
 
   end
