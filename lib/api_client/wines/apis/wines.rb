@@ -1,15 +1,18 @@
 module ApiClient
   class Wines
-    def self.get
+    def self.get(id: nil)
       env = {}
       env['rack.input'] = Puma::NullIO.new
       env['REQUEST_METHOD'] = 'GET'
-      env['REQUEST_PATH'] = '/orders/hello'
-      env['REQUEST_URI'] = '/orders/hello'
+      env['REQUEST_PATH'] = '/wines/hello'
+      env['REQUEST_URI'] = '/wines/hello'
+      env['PATH_INFO'] = '/wines/hello'
 
-      binding.pry
       response = ApplicationApi.call(env)
 
+      binding.pry
+      
+      # @request = Rack::Request.new(env)
       # WinesComponent::Wines.call
 
     end

@@ -4,7 +4,11 @@ module OrdersComponent
     resource :hello do
       desc 'Return a Hello World message'
       get do
-        binding.pry
+
+        # testing: hit /orders/hello
+        ApiClient::Wines.get(id: 1)
+
+
         sample_order = OrdersComponent::ShowSampleOrder.new(name: "Coffee", quantity: 15)
         { message: sample_order.call }
       end

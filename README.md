@@ -20,6 +20,7 @@ env['rack.input'] = Puma::NullIO.new
 env['REQUEST_METHOD'] = 'GET'
 env['REQUEST_PATH'] = '/orders/hello'
 env['REQUEST_URI'] = '/orders/hello'
+env['PATH_INFO'] = '/orders/hello'
 
 ```
 
