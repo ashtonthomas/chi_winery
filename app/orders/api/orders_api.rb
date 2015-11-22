@@ -6,7 +6,7 @@ module OrdersComponent
       get do
 
         # testing: hit /orders/hello
-        wine = ApiClient::Wines.get(id: 1)
+        wine = ApiClient::WinesApi.get(id: 1)
 
         sample_order = OrdersComponent::ShowSampleOrder.new(name: "Coffee (but pair with: #{wine.name})", quantity: 15)
         { message: sample_order.call }

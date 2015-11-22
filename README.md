@@ -28,3 +28,6 @@ I should just be able to call ApplicationApi.call(env)
 construct the env hash as normal
 and parse the response indifferent to whether we are going
 across the network or not
+
+
+http://stackoverflow.com/questions/19206764/how-can-i-load-activerecord-database-tasks-on-a-ruby-project-outside-rails

@@ -9,7 +9,7 @@ describe OrdersComponent::OrdersApi do
 
   describe 'GET /hello' do
     it 'returns a hello world message' do
-      binding.pry
+      # binding.pry
       get '/orders/hello'
       expect(response_body).to eq({ message: 'Hello Wonderful World, from ChiWinery!' }.to_json)
     end

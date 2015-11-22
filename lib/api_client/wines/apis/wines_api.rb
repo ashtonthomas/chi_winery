@@ -1,5 +1,5 @@
 module ApiClient
-  class Wines
+  class WinesApi
     def self.get(id: nil)
       env = {}
       env['rack.input'] = Puma::NullIO.new

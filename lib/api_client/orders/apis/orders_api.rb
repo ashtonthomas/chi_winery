@@ -1,5 +1,5 @@
 module ApiClient
-  class Orders
+  class OrdersApi
 
     # url: localhost or a different url some-service.herokuapp.com
 

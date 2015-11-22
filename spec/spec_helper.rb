@@ -35,6 +35,11 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+
+    root = File.expand_path('../..', __FILE__)
+    require "#{root}/lib/api_client/seeder"
+    seeder = Napa::ActiveRecordSeeder.new(File.join root, 'db/seeds.rb')
+    seeder.load_seed
   end
 
   config.before(:each) do
