@@ -22,5 +22,6 @@ relative_load_paths = %w(
   app/wines
 
   lib/api_client
+  lib/api_client/wines/representers
 )
 ActiveSupport::Dependencies.autoload_paths += relative_load_paths
