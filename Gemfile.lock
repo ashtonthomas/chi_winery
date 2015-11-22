@@ -1,3 +1,24 @@
+GIT
+  remote: git://github.com/ashtonthomas/napa.git
+  revision: e76c75ced1b1ad8da8a365dd65027bc8b18f0728
+  branch: chi_winery
+  specs:
+    napa (0.5.1)
+      actionpack (>= 3.2.0)
+      dotenv
+      git (~> 1.2.0)
+      grape (~> 0.13.0)
+      grape-swagger (~> 0.9.0)
+      indefinite_article (~> 0.2.0)
+      logging (~> 2.0.0)
+      octokit (~> 3.5.0)
+      racksh (~> 1.0.0)
+      rake (~> 10.3.0)
+      roar (~> 0.12.0)
+      statsd-ruby (~> 1.2.0)
+      thor (~> 0.19.0)
+      virtus (~> 1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -65,7 +86,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    dotenv (1.0.2)
+    dotenv (2.0.2)
     equalizer (0.0.11)
     erubis (2.7.0)
     factory_girl (4.5.0)
@@ -75,7 +96,7 @@ GEM
     faraday_middleware (0.10.0)
       faraday (>= 0.7.4, < 0.10)
     git (1.2.9.1)
-    grape (0.9.0)
+    grape (0.13.0)
       activesupport
       builder
       hashie (>= 2.1.0)
@@ -88,8 +109,8 @@ GEM
     grape-entity (0.4.8)
       activesupport
       multi_json (>= 1.3.2)
-    grape-swagger (0.8.0)
-      grape
+    grape-swagger (0.9.0)
+      grape (>= 0.8.0)
       grape-entity
     hashdiff (0.2.3)
     hashie (3.4.3)
@@ -101,30 +122,18 @@ GEM
     i18n (0.7.0)
     ice_nine (0.11.1)
     imprint (1.5.0)
+    indefinite_article (0.2.4)
+      activesupport
     json (1.8.3)
     little-plugger (1.1.4)
-    logging (1.8.2)
-      little-plugger (>= 1.1.3)
-      multi_json (>= 1.8.4)
+    logging (2.0.0)
+      little-plugger (~> 1.1)
+      multi_json (~> 1.10)
     method_source (0.8.2)
     minitest (4.7.5)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    napa (0.5.0)
-      actionpack (>= 3.2.0)
-      dotenv (~> 1.0.0)
-      git (~> 1.2.0)
-      grape (~> 0.9.0)
-      grape-swagger (~> 0.8.0)
-      logging (~> 1.8.0)
-      octokit (~> 3.5.0)
-      racksh (~> 1.0.0)
-      rake (~> 10.3.0)
-      roar (~> 0.12.0)
-      statsd-ruby (~> 1.2.0)
-      thor (~> 0.19.0)
-      virtus (~> 1.0.0)
     nio4r (1.1.1)
     octokit (3.5.2)
       sawyer (~> 0.5.3)
@@ -218,12 +227,13 @@ DEPENDENCIES
   factory_girl
   faraday
   faraday_middleware
+  grape (~> 0.13.0)
   grape-swagger
   hashie-forbidden_attributes
   honeybadger (~> 1.16.7)
   imprint
   json
-  napa
+  napa!
   pg
   pry
   puma (= 2.11.3)
