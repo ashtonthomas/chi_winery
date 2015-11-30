@@ -21,3 +21,9 @@ require_relative 'wines/representers/wine_representer'
 # Maybe it has something to do with the different in loading
 # between regular lib files and gems/ruby-gems
 # so maybe we can rearrange once we put this into a gem
+
+if ENV['RACK_ENV'] == 'test'
+  # Load mocks, override api methods
+  require_relative 'wines/mocks/wines_mock'
+  require_relative 'wines/factories/wine_factory'
+end

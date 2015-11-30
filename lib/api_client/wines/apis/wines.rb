@@ -1,6 +1,8 @@
 module WinesApi
   class Wines
     def self.get(id: nil)
+      # if spec, do something else?
+
       env = {}
       env['rack.input'] = Puma::NullIO.new
       env['REQUEST_METHOD'] = 'GET'
@@ -18,6 +20,9 @@ module WinesApi
 
       # @request = Rack::Request.new(env)
       # WinesComponent::Wines.call
+
+      # TODO
+      # compare this body json to that of the factory wine to_json (**)
 
       wine = Wine.new
       wine.extend(WineRepresenter)

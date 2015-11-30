@@ -31,3 +31,8 @@ across the network or not
 
 
 http://stackoverflow.com/questions/19206764/how-can-i-load-activerecord-database-tasks-on-a-ruby-project-outside-rails
+
+
+## Questions:
+
+- requiring ruby files in/outside of a class def (regular vs in gem)?

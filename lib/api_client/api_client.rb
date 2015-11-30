@@ -6,10 +6,9 @@ module ApiClient
   if (ENV['SERVICES_DOMAIN_NAME'].nil? || ENV['SERVICES_DOMAIN_NAME'].empty?) &&
       DISTRIBUTED_ENVIRONMENTS.include?(ENV['RAILS_ENV'] || ENV['RACK_ENV'])
 
-    # TODO remove RAILS_ENV at some point if possible [act]
     Honeybadger.notify(context: {
         message: 'SERVICES_DOMAIN_NAME environment variable not set.',
-        environment: (ENV['RAILS_ENV'] || ENV['RACK_ENV'])
+        environment: (ENV['RACK_ENV'])
     }) if defined?(Honeybadger)
   end
 end
