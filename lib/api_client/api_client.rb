@@ -1,13 +1,6 @@
-require_relative 'request'
+require_relative 'init'
 
 module ApiClient
-  require_relative 'init'
-
-  require_relative 'orders/apis/orders_api'
-  require_relative 'wines/apis/wines_api'
-  require_relative 'wines/representers/wine_representer'
-
-
   DISTRIBUTED_ENVIRONMENTS = %w(staging production)
 
   if (ENV['SERVICES_DOMAIN_NAME'].nil? || ENV['SERVICES_DOMAIN_NAME'].empty?) &&
