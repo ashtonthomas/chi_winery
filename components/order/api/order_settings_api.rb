@@ -1,4 +1,4 @@
-module OrdersComponent
+module OrderComponent
   class OrderSettingsApi < Grape::API
 
     resource :hello do

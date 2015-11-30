@@ -1,4 +1,4 @@
-module WinesComponent
+module WineComponent
   class WinesApi < Grape::API
 
     resource :hello do

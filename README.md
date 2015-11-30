@@ -36,3 +36,9 @@ http://stackoverflow.com/questions/19206764/how-can-i-load-activerecord-database
 ## Questions:
 
 - requiring ruby files in/outside of a class def (regular vs in gem)?
+
+On component naming
+- I guess most times a component will be named after the most
+- prominent model..
+- this creates some confusion
+- so I may want to say wines_component

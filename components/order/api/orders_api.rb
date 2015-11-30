@@ -1,4 +1,4 @@
-module OrdersComponent
+module OrderComponent
   class OrdersApi < Grape::API
 
     resource :hello do
@@ -6,7 +6,7 @@ module OrdersComponent
       get do
 
         # testing: hit /orders/hello
-        wine = WinesApi::Wines.get(id: 1)
+        wine = WineApi::Wines.get(id: 1)
 
         # Okay, now what if I want to talk to order-settings?
         # Do I need to go through the ApiClient?
@@ -33,7 +33,7 @@ module OrdersComponent
         # OrdersApi::Orders
         # WinesApi::Wines.get(id: 1)
 
-        sample_order = OrdersComponent::ShowSampleOrder.new(name: "Coffee (but pair with: #{wine.name})", quantity: 15)
+        sample_order = OrderComponent::ShowSampleOrder.new(name: "Coffee (but pair with: #{wine.name})", quantity: 15)
         { message: sample_order.call }
       end
     end

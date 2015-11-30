@@ -1,6 +1,6 @@
 require_relative 'init'
 
-module ApiClient
+module ComponentsApi
   DISTRIBUTED_ENVIRONMENTS = %w(staging production)
 
   if (ENV['SERVICES_DOMAIN_NAME'].nil? || ENV['SERVICES_DOMAIN_NAME'].empty?) &&

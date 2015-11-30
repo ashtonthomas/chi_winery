@@ -18,14 +18,14 @@ Dir['./config/middleware/**/*.rb'].map { |file| require file }
 relative_load_paths = %w(
   app/
 
-  app/orders
-  app/wines
+  components/order
+  components/wine
 
-  lib/api_client
+  lib/components_api
 )
 
 ActiveSupport::Dependencies.autoload_paths += relative_load_paths
 
 # Do I need to call this class so
 # all the other requires are evaluated?
-ApiClient
+ComponentsApi

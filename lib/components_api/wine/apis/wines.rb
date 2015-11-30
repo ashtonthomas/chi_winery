@@ -1,4 +1,4 @@
-module WinesApi
+module WineApi
   class Wines
     def self.get(id: nil)
       # if spec, do something else?

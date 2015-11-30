@@ -10,10 +10,10 @@ Kernel::silence_warnings { Imprint::Tracer.const_set('TRACER_HEADER', 'HTTP_X_B3
 # Load stuff
 require_relative 'request'
 
-require_relative 'orders/apis/orders'
+require_relative 'order/apis/orders'
 
-require_relative 'wines/apis/wines'
-require_relative 'wines/representers/wine_representer'
+require_relative 'wine/apis/wines'
+require_relative 'wine/representers/wine_representer'
 
 
 # Note
@@ -24,6 +24,9 @@ require_relative 'wines/representers/wine_representer'
 
 if ENV['RACK_ENV'] == 'test'
   # Load mocks, override api methods
-  require_relative 'wines/mocks/wines_mock'
-  require_relative 'wines/factories/wine_factory'
+  require_relative 'pact/pact_builder'
+  require_relative 'wine/mocks/wines_mock'
+  require_relative 'wine/pacts/wines_pact'
+
+  require_relative 'wine/factories/wines_api_wines'
 end
