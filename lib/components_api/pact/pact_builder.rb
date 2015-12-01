@@ -31,6 +31,7 @@ module PactBuilder
           # the current setup won't let us do this
           # TODO
 
+          # Also, todo: helpful error message when the parameter_string isn't found :D
         end
         concept.def_delegator self, method, method
       end
