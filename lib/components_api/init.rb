@@ -25,7 +25,6 @@ require_relative 'wine/representers/wine_representer'
 if ENV['RACK_ENV'] == 'test'
   # Load mocks, override api methods
   require_relative 'pact/pact_builder'
-  require_relative 'wine/mocks/wines_mock'
   require_relative 'wine/pacts/wines_pact'
 
   require_relative 'wine/factories/wines_api_wines'

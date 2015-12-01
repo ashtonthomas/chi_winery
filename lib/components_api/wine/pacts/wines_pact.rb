@@ -1,37 +1,23 @@
-module WineComponent
+# This is where we can define our pacts
+# map parameters to return
+# used in consumer and produce specs
+module WinePact
   module WinesPact
     include PactBuilder
 
+    pact_for WineApi::Wines
 
-
-    #method name, method verb, param_string
-
-    pact :get, "{:id=>1}" do |wine|
-
-    end
-
-    module Get
-
-      # SUPPORTED_PRECONDITIONS = [
-      #   Preconditions::SomeContext::SomeSpecialCondition
-      # ]
-
-      # Pact::WineComponent::Wines::Get.preconditions
-      # can we use some meta programming to just call #preconditions (?)
-      # need to map parameters to result hash
-
-
-      pact "{:id=>1}" do |wine|
-        wine.name = "A Mocked Wine Name"
-        wine.vintage = 1966
-      end
-
-      def self.mock(parameter_string)
-        # this method can be completely dynamic
-      end
-
-
-    end
+    # I also need to know which representer to use here
+    # I don't think we need the verb
+    # the verb really only matters when we have the same url
+    # but we always have distinct method names
+    pact :get, "{:id=>1}", Hashie::Mash.new(
+      representer: WineRepresenter,
+      response: {
+        name: "Some Robert Mondavi Classic",
+        vintage: 1966
+      }
+    )
 
   end
 end

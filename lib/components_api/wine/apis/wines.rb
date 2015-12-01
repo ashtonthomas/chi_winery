@@ -3,6 +3,8 @@ module WineApi
     def self.get(id: nil)
       # if spec, do something else?
 
+      binding.pry
+
       env = {}
       env['rack.input'] = Puma::NullIO.new
       env['REQUEST_METHOD'] = 'GET'
