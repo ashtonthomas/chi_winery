@@ -33,7 +33,7 @@ module OrderComponent
         # OrdersApi::Orders
         # WinesApi::Wines.get(id: 1)
 
-        sample_order = OrderComponent::ShowSampleOrder.new(name: "Coffee (but pair with: #{wine.name})", quantity: 15)
+        sample_order = OrderComponent::ShowSampleOrder.new(name: "Coffee (but pair with: #{wine.represented.name})", quantity: 15)
         { message: sample_order.call }
       end
     end

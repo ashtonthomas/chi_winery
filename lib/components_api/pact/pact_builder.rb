@@ -19,19 +19,12 @@ module PactBuilder
           parameter_string = args.to_s
 
           stub = pacts[method][parameter_string]
+          # TODO: helpful error message if key not found
 
-          fake = Object.new
-          fake.extend(stub.representer)
-          fake.from_hash(stub.response)
+          representer = stub.representer
+          response = stub.response
 
-          binding.pry
-          # Okay, so here we have a problem
-          # We aren't going to have access to the ActiveRecord class
-          # So we need to instantiate the representer as an actual class
-          # the current setup won't let us do this
-          # TODO
-
-          # Also, todo: helpful error message when the parameter_string isn't found :D
+          representer.new(response)
         end
         concept.def_delegator self, method, method
       end

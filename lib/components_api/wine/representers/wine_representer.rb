@@ -1,6 +1,7 @@
 require 'roar/representer/json'
+require 'roar/decorator'
 
-module WineRepresenter #< Napa::Representer
+class WineRepresenter < Roar::Decorator
   include Roar::Representer::JSON
 
   # TODO

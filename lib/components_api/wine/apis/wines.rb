@@ -3,8 +3,6 @@ module WineApi
     def self.get(id: nil)
       # if spec, do something else?
 
-      binding.pry
-
       env = {}
       env['rack.input'] = Puma::NullIO.new
       env['REQUEST_METHOD'] = 'GET'
@@ -26,9 +24,13 @@ module WineApi
       # TODO
       # compare this body json to that of the factory wine to_json (**)
 
-      wine = Wine.new
-      wine.extend(WineRepresenter)
-      wine.from_json(body)
+      binding.pry # Hash vs Hashie::Mash
+      # looks like we really don't need the shared representer
+      # what value is it going to add
+
+      WineRepresenter.new(JSON.parse(body))
+
+
     end
   end
 end
