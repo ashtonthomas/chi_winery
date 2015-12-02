@@ -18,8 +18,11 @@ module PactBuilder
         define_singleton_method(method) do |args|
           parameter_string = args.to_s
 
+          if !pacts.has_key?(method) || !pacts[method].has_key?(parameter_string)
+            raise "#{self} does not have #{concept} pact for method ':#{method}' with id key: '#{parameter_string}'"
+          end
+
           stub = pacts[method][parameter_string]
-          # TODO: helpful error message if key not found
 
           representer = stub.representer
           response = stub.response
