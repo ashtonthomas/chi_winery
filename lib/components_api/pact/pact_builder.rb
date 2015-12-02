@@ -22,6 +22,20 @@ module ComponentsApi
           end
           concept.def_delegator self, method, method
         end
+
+        # TBD
+        # If this service defines: /components/concept_module(/wine)/api/concept(/wines_api)
+        # maybe I an rename some stuff to make this easier
+        # WineComponent::WinesApi
+        if defined?(WineComponent::WinesApi)
+          # We are on the machine that hosts this component
+          # dynaically create the specs based on the pact
+          binding.pry
+          # maybe I can't do this in ComponentsApi
+          # because I would need to take into account
+          # service-document manifest ideas
+        end
+        binding.pry
       end
 
       def extract_stub(pact_class, concept, method, args)
