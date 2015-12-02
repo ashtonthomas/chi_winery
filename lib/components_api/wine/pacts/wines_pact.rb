@@ -1,6 +1,6 @@
 module WinePact
   module WinesPact
-    include PactBuilder
+    include ComponentsApi::PactBuilder
 
     pact_for WineApi::Wines
 
