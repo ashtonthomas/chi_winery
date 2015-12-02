@@ -4,12 +4,10 @@ module ComponentsApi
     def self.included(base)
       base.mattr_accessor :pacts
       base.pacts = Hashie::Mash.new
-
       base.extend(ClassMethods)
     end
 
     module ClassMethods
-
       def pact_for concept
         concept.extend(SingleForwardable)
 
