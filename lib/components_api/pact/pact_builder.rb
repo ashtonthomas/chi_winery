@@ -9,9 +9,7 @@ module ComponentsApi
     end
 
     module ClassMethods
-      # Let's override the methods to take the args
-      # convert to string and use that to look up the stub response
-      # run the stup response through the desired representer
+
       def pact_for concept
         concept.extend(SingleForwardable)
 
