@@ -17,23 +17,31 @@ module ComponentsApi
 
         concept.methods(false).each do |method|
           define_singleton_method(method) do |args|
-            parameter_string = args.to_s
-
-            if !pacts.has_key?(method) || !pacts[method].has_key?(parameter_string)
-              raise "#{self} does not have #{concept} pact for method ':#{method}' with id key: '#{parameter_string}'"
-            end
-
-            stub = pacts[method][parameter_string]
+            stub = extract_stub(self, concept, method, args)
 
             representer = stub.representer
             response = stub.response
 
-            struct = OpenStruct.new
-            struct.extend(representer)
-            struct.from_hash(response)
+            return extract_concept(representer, response)
           end
           concept.def_delegator self, method, method
         end
+      end
+
+      def extract_stub(pact_class, concept, method, args)
+        parameter_string = args.to_s
+
+        if !pacts.has_key?(method) || !pacts[method].has_key?(parameter_string)
+          raise "#{pact_class} does not have #{concept} pact for method ':#{method}' with id key: '#{parameter_string}'"
+        end
+
+        pacts[method][parameter_string]
+      end
+
+      def extract_concept(representer, response)
+        struct = OpenStruct.new
+        struct.extend(representer)
+        struct.from_hash(response)
       end
 
       def pact method_name, parameter_string, stub
