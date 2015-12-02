@@ -16,21 +16,9 @@ module WineApi
       header = response[1]
       body = response[2].body.first
 
-      # body_parsed = JSON.parse(body)
-
-      # @request = Rack::Request.new(env)
-      # WinesComponent::Wines.call
-
-      # TODO
-      # compare this body json to that of the factory wine to_json (**)
-
-      binding.pry # Hash vs Hashie::Mash
-      # looks like we really don't need the shared representer
-      # what value is it going to add
-
-      WineRepresenter.new(JSON.parse(body))
-
-
+      struct = OpenStruct.new
+      struct.extend(WineRepresenter)
+      struct.from_json(body)
     end
   end
 end

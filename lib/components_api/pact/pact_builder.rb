@@ -24,7 +24,9 @@ module PactBuilder
           representer = stub.representer
           response = stub.response
 
-          representer.new(response)
+          struct = OpenStruct.new
+          struct.extend(representer)
+          struct.from_hash(response)
         end
         concept.def_delegator self, method, method
       end

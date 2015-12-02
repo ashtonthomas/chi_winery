@@ -1,7 +1,7 @@
 require 'roar/representer/json'
 require 'roar/decorator'
 
-class WineRepresenter < Roar::Decorator
+module WineRepresenter #< Roar::Decorator
   include Roar::Representer::JSON
 
   # TODO

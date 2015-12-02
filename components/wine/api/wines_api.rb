@@ -15,8 +15,7 @@ module WineComponent
       # include Grape::Roar::Representer
       wine = Wine.all.first
 
-      WineRepresenter.new(wine)
-
+      wine.extend(WineRepresenter)
     end
 
   end
