@@ -9,10 +9,12 @@ module WineComponent
     #   end
     # end
 
-    desc 'Just get it. Test overriding this during specs'
-    get do
-      wine = Wine.all.first
-      wine.extend(WineRepresenter)
+    route_param :id do
+      desc 'Just get it. Test overriding this during specs'
+      get do
+        wine = Wine.find(params[:id])
+        wine.extend(WineRepresenter)
+      end
     end
 
   end
