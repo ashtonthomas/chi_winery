@@ -42,3 +42,13 @@ On component naming
 - prominent model..
 - this creates some confusion
 - so I may want to say wines_component
+
+
+# Patterns to Follow
+
+- Controller only handle HTTP stuff
+- models only handle data access stuff (validations?)
+- never use callbacks (?)
+- Avdi's Naught/NullObject pattern (checking `nil` is always wrong?) (Naught, NullObject, Safe Navigation)
+- Naught does seem really cool: https://github.com/avdi/naught
+-
