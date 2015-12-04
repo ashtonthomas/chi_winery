@@ -12,10 +12,11 @@ describe WineComponent::WinesApi do
   # 2) service document (this is still TBD)
   # I will need to combine these things in the main api specs
 
+  # service document will also nee to be used in front-end Angular2/GWT app?
+
   describe 'GET' do
     it 'does something' do
       get '/wines/1'
-      binding.pry
     end
   end
 end

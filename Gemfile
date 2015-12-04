@@ -9,7 +9,9 @@ gem 'honeybadger', '~> 1.16.7'
 gem 'json'
 gem 'napa', github: 'ashtonthomas/napa', branch: 'chi_winery'
 gem 'grape', '~> 0.13.0'
+
 gem 'roar', '~> 0.12.0'
+
 gem 'grape-swagger'
 
 gem 'representable', '>= 2.4.0.rc1'

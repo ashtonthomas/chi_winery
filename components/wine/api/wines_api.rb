@@ -16,6 +16,5 @@ module WineComponent
         wine.extend(WineRepresenter)
       end
     end
-
   end
 end

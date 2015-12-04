@@ -51,4 +51,4 @@ On component naming
 - never use callbacks (?)
 - Avdi's Naught/NullObject pattern (checking `nil` is always wrong?) (Naught, NullObject, Safe Navigation)
 - Naught does seem really cool: https://github.com/avdi/naught
--
+- Sandi's input on this: https://www.youtube.com/watch?v=OMPfEXIlTVE (and on good OOD)
