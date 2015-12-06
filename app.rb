@@ -16,6 +16,7 @@ Dir['./config/middleware/**/*.rb'].map { |file| require file }
 
 # autoload app
 relative_load_paths = %w(
+  components/index
   components/order
   components/wine
   lib/components_api
