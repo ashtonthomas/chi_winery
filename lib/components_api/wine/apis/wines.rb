@@ -6,9 +6,9 @@ module WineApi
       env = {}
       env['rack.input'] = Puma::NullIO.new
       env['REQUEST_METHOD'] = 'GET'
-      env['REQUEST_PATH'] = '/wines'
-      env['REQUEST_URI'] = '/wines'
-      env['PATH_INFO'] = '/wines'
+      env['REQUEST_PATH'] = "/wines/#{id}"
+      env['REQUEST_URI'] = "/wines/#{id}"
+      env['PATH_INFO'] = "/wines/#{id}"
 
       response = ApplicationApi.call(env)
 
