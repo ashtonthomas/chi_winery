@@ -6,7 +6,7 @@ module OrderComponentImpl
       get do
         # testing: hit /orders/hello
 
-        wine = WineApi::Wines.get(id: 1)
+        wine = WineComponent::WineApi.get(id: 1)
 
         # Okay, now what if I want to talk to order-settings?
         # Do I need to go through the ApiClient?
@@ -33,7 +33,7 @@ module OrderComponentImpl
         # OrdersApi::Orders
         # WinesApi::Wines.get(id: 1)
 
-        sample_order = OrderComponent::ShowSampleOrder.new(
+        sample_order = OrderComponentImpl::ShowSampleOrder.new(
           name: "Coffee (but pair with: #{wine.name})",
           quantity: 15
         )

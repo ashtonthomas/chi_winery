@@ -13,9 +13,9 @@ require_relative 'lib/is_local_component'
 
 require_relative 'request'
 
-require_relative 'order/apis/orders'
+require_relative 'order/api/order_api'
 
-require_relative 'wine/apis/wines'
+require_relative 'wine/api/wine_api'
 require_relative 'wine/representers/wine_representer'
 
 

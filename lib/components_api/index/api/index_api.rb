@@ -1,5 +1,5 @@
-module IndexApi
-  class Index
+module IndexComponent
+  class IndexApi
     # Do we need to make an exception for the index call?
     # Is there a chicken and egg problem?
     # I don't think so

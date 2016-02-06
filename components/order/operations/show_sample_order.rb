@@ -1,4 +1,4 @@
-module OrderComponent
+module OrderComponentImpl
   class ShowSampleOrder
 
     def initialize(name: 'sample', quantity: 0)

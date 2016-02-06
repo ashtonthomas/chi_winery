@@ -2,7 +2,7 @@ module WinePact
   module WinesPact
     include ComponentsApi::PactRouter
 
-    pact_for WineApi::Wines
+    pact_for WineComponent::WineApi
 
     pact :get, "{:id=>1}", Hashie::Mash.new(
       representer: WineRepresenter,

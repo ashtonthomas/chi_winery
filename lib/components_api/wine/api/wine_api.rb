@@ -1,8 +1,8 @@
 # 1) Spec: return pact
 # 2) Local: mock request
 # 3) Foreign: use ServiceDocument to request
-module WineApi
-  class Wines
+module WineComponent
+  class WineApi
     include ComponentsApi::RequestRouter
 
     requests_for :wine # the concept name

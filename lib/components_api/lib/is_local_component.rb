@@ -24,29 +24,18 @@ class IsLocalComponent
   end
 
   def call()
-    # At this point, we need a hard convention for
-    # mapping the lib/naming => app/naming
-    # WineApi::Wines => WineComponent::WinesApi
-    #
-    # binding.pry
-
-
-    # ComponentImpl::Concept
-    # Component::Concept
-
-    # OrderComponentImpl::Order
-    # OrderComponent::Order
-
-    # Order may be confusing, maybe we should add Api
-
     # OrderComponentImpl::OrderApi
     # OrderComponent::OrderApi
 
-    # and we just pass in the concept here
-    # the concept needs to know when component it is part of..
-    # maybe we do just extract that our of the name.. :thumbsup:
+    # target_concept extract concept
+    begin
+      impl = @target_concept.to_s.gsub("Component", "ComponentImpl")
+      Object.const_get(impl)
 
-    false
+      return true
+    rescue NameError => e
+      return false
+    end
   end
 
   private
