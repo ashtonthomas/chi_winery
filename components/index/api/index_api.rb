@@ -50,10 +50,27 @@ module IndexComponent
       # Index should be api.chi-winery.com/
       # should return all concepts and actions
 
+      # Roar + JSONAPI
+      # Every endpoint uses a Representer?
+      # And we can use those Representers to build the index response?
+
+      # That means the Representer has 3 responsiblities
+      # 1) Represent the response on the producer
+      # 2) parse the response on the consumer
+      # 3) constructing the index response
+      # 4?) I guess this needs to also alert when things are out of sync
+      # need to explore how things are going to work when parsing
+      #
+
+      # Maybe we can represent a Naught-like object to create the index response??
       #
 
       # Okay, so this guy needs to know how to call the index of each component
-      "return [todo]"
+
+      index_document = BuildIndexDocument.call
+
+      index_document.to_json
+
     end
   end
 end

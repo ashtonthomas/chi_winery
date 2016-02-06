@@ -1,14 +1,36 @@
+# rename this to PactRouter?
 module ComponentsApi
-  module PactBuilder
+  module PactRouter
 
     def self.included(base)
       base.mattr_accessor :pacts
       base.pacts = Hashie::Mash.new
       base.extend(ClassMethods)
+
+      # Okay, so we actually need to know when components are "local"
+      # So we _don't_ override this, we just let the RequestRouter do its thing
+
+      # Actually, no on all of that ^
+      # We should **always** mock out component-to-component communication******
+
+      # so, no cross component communication in specs (ever)
+      # so, while in a component, don't ever use the public API.
+      # that should only ever be for HTTP requests
+      # Everything else should happen in an operation (internally)
+      # that makes sense.
     end
 
     module ClassMethods
       def pact_for concept
+        is_test = ENV['RACK_ENV'] == 'test'
+        is_external = IsLocalComponent.call(target_concept: concept)
+
+        if is_test || is_external
+          mock(concept)
+        end
+      end
+
+      def mock(concept)
         concept.extend(SingleForwardable)
 
         concept.methods(false).each do |method|

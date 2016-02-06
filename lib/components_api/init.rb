@@ -8,6 +8,9 @@ end
 Kernel::silence_warnings { Imprint::Tracer.const_set('TRACER_HEADER', 'HTTP_X_B3_TRACEID') }
 
 # Load stuff
+require_relative 'lib/request_router'
+require_relative 'lib/is_local_component'
+
 require_relative 'request'
 
 require_relative 'order/apis/orders'
@@ -22,8 +25,10 @@ require_relative 'wine/representers/wine_representer'
 # between regular lib files and gems/ruby-gems
 # so maybe we can rearrange once we put this into a gem
 
-if ENV['RACK_ENV'] == 'test'
+# maybe we should always load the pact_router
+# if test ? mock_everything : mock_only_external
+if ENV['RACK_ENV'] == 'test' || ENV['RACK_ENV'] == 'development'
   # Load mocks, override api methods
-  require_relative 'pact/pact_builder'
+  require_relative 'lib/pact_router'
   require_relative 'wine/pacts/wines_pact'
 end

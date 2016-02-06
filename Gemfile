@@ -7,7 +7,8 @@ gem 'activerecord', '~> 4.0.0', :require => 'active_record'
 gem 'hashie-forbidden_attributes'
 gem 'honeybadger', '~> 1.16.7'
 gem 'json'
-gem 'napa', github: 'ashtonthomas/napa', branch: 'chi_winery'
+gem 'napa', github: 'ashtonthomas/napa', branch: 'copy_darbys_unpin_dependencies'
+
 gem 'grape', '~> 0.13.0'
 
 gem 'roar', '~> 0.12.0'
@@ -28,9 +29,11 @@ gem 'puma', '2.11.3' # fixing version because the 2.12 revision has problems rep
 
 gem 'naught'
 
-group :development,:test do
-  gem 'pry'
-end
+gem 'pry'
+# having trouble running console on heroku
+# group :development,:test do
+#   gem 'pry'
+# end
 
 group :development do
   gem 'rubocop', require: false

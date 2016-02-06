@@ -53,7 +53,12 @@ describe OrderComponent::OrdersApi do
 
 
       get '/orders/hello'
-      expect(response_body).to eq({ message: "Here is Cool Coffee (but pair with: Some Robert Mondavi Classic) order for a quantity of 15" }.to_json)
+
+      # wine_name = WinePact::WinesPact.get(id: 1).name
+      wine_name = "Some Robert Mondavi Classic"
+      message = "Here is Cool Coffee (but pair with: #{wine_name}) order for a quantity of 15"
+
+      expect(response_body).to eq({ message: message }.to_json)
     end
   end
 

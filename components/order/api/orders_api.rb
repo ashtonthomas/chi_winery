@@ -4,8 +4,8 @@ module OrderComponent
     resource :hello do
       desc 'Return a Hello World message'
       get do
-
         # testing: hit /orders/hello
+
         wine = WineApi::Wines.get(id: 1)
 
         # Okay, now what if I want to talk to order-settings?
@@ -33,7 +33,11 @@ module OrderComponent
         # OrdersApi::Orders
         # WinesApi::Wines.get(id: 1)
 
-        sample_order = OrderComponent::ShowSampleOrder.new(name: "Coffee (but pair with: #{wine.name})", quantity: 15)
+        sample_order = OrderComponent::ShowSampleOrder.new(
+          name: "Coffee (but pair with: #{wine.name})",
+          quantity: 15
+        )
+
         { message: sample_order.call }
       end
     end

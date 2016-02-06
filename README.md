@@ -1,6 +1,21 @@
 # Welcome to Napa
 
+```
+heroku create app-1-chi-winery
+
+heroku buildpacks
+# heroku buildpacks:set heroku/ruby
+heroku buildpacks:add https://github.com/ashtonthomas/nginx-buildpack.git
+heroku buildpacks
+# 1. heroku/ruby
+# 2. https://github.com/ashtonthomas/nginx-buildpack.git
+#
+# Set DATABASE_URL
+```
+
 TODO: Add an awesome README that explains how all this stuff works!
+
+https://gist.github.com/ashtonthomas/02e598c9e28dbc0ce419
 
 Can I use postgres schema to mimich the component boundaries in the database:
 http://jerodsanto.net/2011/07/building-multi-tenant-rails-apps-with-postgresql-schemas/
@@ -52,3 +67,17 @@ On component naming
 - Avdi's Naught/NullObject pattern (checking `nil` is always wrong?) (Naught, NullObject, Safe Navigation)
 - Naught does seem really cool: https://github.com/avdi/naught
 - Sandi's input on this: https://www.youtube.com/watch?v=OMPfEXIlTVE (and on good OOD)
+
+
+# On Grape: can we dynamically create ComponentsApi/ApiClient? from the ServiceDocument (based on the api definitions)
+- maybe dynamically generate it, but it has to live on it's on - like a gem - so we can do it at runtime dynamically (??)
+- not a big deal. we just build the mocks from the pact definitions (so this isn't that big of a concern)
+
+
+# Misc
+
+Services seem to be a bad way to organize application code.
+It sucks when you want to add a 'component' and not a full services
+(because of the maintenance overhead).
+Would be great to be able to stick a component anywhere. This would be great for experimental components.
+We can just have a misc server where we stick components. It shouldn't matter what components are physically next to each other.

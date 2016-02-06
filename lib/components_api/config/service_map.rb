@@ -15,4 +15,10 @@ module ServiceMap
   # we already call these things index, and that really is what is going on here
   # I think "index" is a better term for this
 
+  # doesn't this not need to be here?
+
+  # /component_group_name/concept
+  # /order/order
+  # /wine/api/wine
+
 end

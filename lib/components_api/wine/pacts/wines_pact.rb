@@ -1,6 +1,6 @@
 module WinePact
   module WinesPact
-    include ComponentsApi::PactBuilder
+    include ComponentsApi::PactRouter
 
     pact_for WineApi::Wines
 
@@ -11,6 +11,8 @@ module WinePact
         vintage: 1966
       }
     )
+
+    # get id: 1
 
   end
 end

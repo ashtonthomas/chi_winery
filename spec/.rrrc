@@ -1,0 +1,6 @@
+# RequestRouterResource (rrrc)
+# I know it's a bad name CHANGE THIS TODO LOL
+# list components we _don't_ want to mock in development
+-- index
+-- wine
+-- order

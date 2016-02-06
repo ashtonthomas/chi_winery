@@ -20,7 +20,8 @@ relative_load_paths = %w(
   components/order
   components/wine
   lib/components_api
-  app/
+  lib/
+  app/apis
 )
 
 ActiveSupport::Dependencies.autoload_paths += relative_load_paths
