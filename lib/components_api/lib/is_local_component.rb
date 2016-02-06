@@ -24,18 +24,10 @@ class IsLocalComponent
   end
 
   def call()
-    # OrderComponentImpl::OrderApi
-    # OrderComponent::OrderApi
-
-    # target_concept extract concept
-    begin
-      impl = @target_concept.to_s.gsub("Component", "ComponentImpl")
-      Object.const_get(impl)
-
-      return true
-    rescue NameError => e
-      return false
-    end
+    impl = @target_concept.to_s.gsub("Component", "ComponentImpl")
+    Object.const_get(impl).present?
+  rescue NameError => e
+    false
   end
 
   private
