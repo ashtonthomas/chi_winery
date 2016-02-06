@@ -1,4 +1,4 @@
-module WineComponent
+module WineComponentImpl
   class WineIndexApi < Grape::API
     get '/' do
       # binding.pry

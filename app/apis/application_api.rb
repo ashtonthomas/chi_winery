@@ -2,12 +2,13 @@ class ApplicationApi < Grape::API
   format :json
   extend Napa::GrapeExtenders
 
-  mount IndexComponent::IndexApi => '/'
+  mount IndexComponentImpl::IndexApi => '/'
 
-  mount OrderComponent::OrdersApi => '/orders/'
-  mount OrderComponent::OrderSettingsApi => '/order-settings/'
-  mount WineComponent::WinesApi => '/wines/'
-  mount WineComponent::WineIndexApi => '/wines/'
+  mount OrderComponentImpl::OrderApi => '/orders/'
+  mount OrderComponentImpl::OrderSettingsApi => '/order-settings/'
+
+  mount WineComponentImpl::WineApi => '/wines/'
+  mount WineComponentImpl::WineIndexApi => '/wines/'
 
   add_swagger_documentation
 end

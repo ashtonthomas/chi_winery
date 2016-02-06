@@ -1,5 +1,5 @@
-module OrderComponent
-  class OrdersApi < Grape::API
+module OrderComponentImpl
+  class OrderApi < Grape::API
 
     resource :hello do
       desc 'Return a Hello World message'

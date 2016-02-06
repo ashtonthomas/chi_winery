@@ -1,4 +1,4 @@
-module IndexComponent
+module IndexComponentImpl
   class IndexApi < Grape::API
     get '/' do
       # We need to utilize the service_map

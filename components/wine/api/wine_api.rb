@@ -1,5 +1,5 @@
-module WineComponent
-  class WinesApi < Grape::API
+module WineComponentImpl
+  class WineApi < Grape::API
 
     resource :foo do
       desc 'Return a Hello World message'

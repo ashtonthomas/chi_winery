@@ -4,7 +4,7 @@ def app
   ApplicationApi
 end
 
-describe OrderComponent::OrdersApi do
+describe OrderComponentImpl::OrderApi do
   include Rack::Test::Methods
 
   describe 'GET /hello' do

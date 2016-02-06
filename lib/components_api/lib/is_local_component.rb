@@ -29,6 +29,23 @@ class IsLocalComponent
     # WineApi::Wines => WineComponent::WinesApi
     #
     # binding.pry
+
+
+    # ComponentImpl::Concept
+    # Component::Concept
+
+    # OrderComponentImpl::Order
+    # OrderComponent::Order
+
+    # Order may be confusing, maybe we should add Api
+
+    # OrderComponentImpl::OrderApi
+    # OrderComponent::OrderApi
+
+    # and we just pass in the concept here
+    # the concept needs to know when component it is part of..
+    # maybe we do just extract that our of the name.. :thumbsup:
+
     false
   end
 
