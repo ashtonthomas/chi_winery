@@ -1,52 +1,12 @@
 module ComponentsApi
   module RequestRouter
     def self.included(base)
-      # base.mattr_accessor :request_methods
-      # base.request_methods = Hashie::Mash.new
-      # binding.pry
-      base.extend(SingleForwardable)
+      # base.extend(SingleForwardable)
       base.extend(ClassMethods)
-
-      # TODO
-      # just have the WineComponent::WineApi just extend a class
-      # it will clean a lot of this shit up
     end
 
     module ClassMethods
 
-      def requests_for(concept)
-
-      end
-
-      # def request(method, arguments)
-      # end
-
-      # so something like /wine/hello/:foo/blah is hard to do
-      # we have to do it in terms of a concept + verb
-      # so the above could be concept FooBlah
-      # and above is the url_template
-      # BUT, if I don't want to create a new concept that is more
-      # in line with our normal helper methods,
-      # can we allow you to define something else
-
-      # def get(method:, url_variables:)
-      #   # but we still need to rely on the service_document to tell use about this
-      #   # so we can't do much except know concept name and the url_variables
-
-      #   # so this would give us:
-      #   # WineComponent::WineApi.hello(url_variables: { foo: 123 })
-      #   binding.pry
-
-      #   define_singleton_method(method) do |args|
-      #     # create this method
-      #     binding.pry
-      #   end
-
-      #   self.def_delegator self, method, method
-
-      # end
-
-      # def get(method: :get, id: nil, url_variables: nil)
       def register_get(method, *url_variables)
         ensure_service_document #todo
 
@@ -58,16 +18,33 @@ module ComponentsApi
             end
           end
 
-          # Now return the correct values
-          mash = Hashie::Mash.new
-          mash.name = "Got it!"
-          mash
+          env = {}
+          env['rack.input'] = Puma::NullIO.new
+
+          env['REQUEST_METHOD'] = 'GET'
+
+          # use service doc for the below as well?
+          env['REQUEST_PATH'] = "/wines/#{args[:id]}"
+          env['REQUEST_URI'] = "/wines/#{args[:id]}"
+          env['PATH_INFO'] = "/wines/#{args[:id]}"
+
+          response = ApplicationApi.call(env)
+
+          status = response[0]
+          header = response[1]
+          body = response[2].body.first
+
+          struct = OpenStruct.new
+          struct.extend(WineRepresenter)
+          struct.from_json(body)
 
         end
         # not sure why I need this in pact_router
         # self.def_delegator self, method, method
       end
 
+      # I can't make too many assumptions around "_should_"
+      # because we will probably break those assumptions immediately: hello
       # there should be no _id_ for a post
       def post(url_variables:, body:)
         ensure_service_document

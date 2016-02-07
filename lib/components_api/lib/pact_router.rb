@@ -22,7 +22,7 @@ module ComponentsApi
         concept.extend(SingleForwardable)
 
         concept.methods(false).each do |method|
-          binding.pry
+          # binding.pry
           define_singleton_method(method) do |args|
             stub = extract_stub(self, concept, method, args)
 
