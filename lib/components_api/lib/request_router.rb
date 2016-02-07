@@ -102,17 +102,17 @@ module ComponentsApi
         ensure_service_document
       end
 
-      # should this be instance method
-      # we do want to cache this across requests**
-      # TBD on a lot of this stuff
       def ensure_service_document
         return if index?
 
-        # make a request to index for service document
-        # load this so we can router internal or external
+        if @@service_document.nil? || service_document_expired?
+          @@service_document = IndexComponent::IndexApi.get
+        end
+      end
 
-        # get the index doc
-        @@service_document ||= IndexComponent::IndexApi.get
+      def service_document_expired?
+        return true unless @service_document
+        Time.parse(@@service_document.requested_at) < (Time.now - 24.hours)
       end
 
     end

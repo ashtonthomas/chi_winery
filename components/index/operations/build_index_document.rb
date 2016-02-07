@@ -13,6 +13,7 @@ class BuildIndexDocument
 
   def call
     {
+      requested_at: Time.now,
       something: "cool",
       foo: {
         blah: "asdf",
