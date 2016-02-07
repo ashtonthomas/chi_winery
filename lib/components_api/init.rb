@@ -13,6 +13,8 @@ require_relative 'lib/is_local_component'
 
 require_relative 'request'
 
+require_relative 'index/api/index_api'
+
 require_relative 'order/api/order_api'
 
 require_relative 'wine/api/wine_api'

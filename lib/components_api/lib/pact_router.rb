@@ -1,4 +1,4 @@
-# rename this to PactRouter?
+# Should only be used in text (always) and dev (when call is external)
 module ComponentsApi
   module PactRouter
 
@@ -11,7 +11,7 @@ module ComponentsApi
     module ClassMethods
       def pact_for concept
         is_test = ENV['RACK_ENV'] == 'test'
-        is_external = IsLocalComponent.call(target_concept: concept)
+        is_external = !IsLocalComponent.call(target_concept: concept)
 
         if is_test || is_external
           mock(concept)
@@ -21,8 +21,9 @@ module ComponentsApi
       def mock(concept)
         concept.extend(SingleForwardable)
 
+        # override the methods dynamically defined methods
+        # (defined in RequestRouter using the declarations in the component api)
         concept.methods(false).each do |method|
-          # binding.pry
           define_singleton_method(method) do |args|
             stub = extract_stub(self, concept, method, args)
 
@@ -31,6 +32,7 @@ module ComponentsApi
 
             return extract_concept(representer, response)
           end
+
           concept.def_delegator self, method, method
         end
       end

@@ -12,8 +12,7 @@ module IndexComponent
 
     # Hey, can I do somthing like the mocking/stubbing while in developemnt?
 
-
-
+    register_get :get
 
 
 

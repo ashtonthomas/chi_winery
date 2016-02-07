@@ -11,8 +11,5 @@ module WineComponent # may not really need to nest under this
         vintage: 1966
       }
     )
-
-    # get id: 1
-
   end
 end
