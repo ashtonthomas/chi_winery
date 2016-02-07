@@ -3,9 +3,13 @@ module ComponentsApi
     def self.included(base)
       # base.mattr_accessor :request_methods
       # base.request_methods = Hashie::Mash.new
-      binding.pry
+      # binding.pry
       base.extend(SingleForwardable)
       base.extend(ClassMethods)
+
+      # TODO
+      # just have the WineComponent::WineApi just extend a class
+      # it will clean a lot of this shit up
     end
 
     module ClassMethods
@@ -25,35 +29,42 @@ module ComponentsApi
       # in line with our normal helper methods,
       # can we allow you to define something else
 
-      def get(method:, url_variables:)
-        # but we still need to rely on the service_document to tell use about this
-        # so we can't do much except know concept name and the url_variables
+      # def get(method:, url_variables:)
+      #   # but we still need to rely on the service_document to tell use about this
+      #   # so we can't do much except know concept name and the url_variables
 
-        # so this would give us:
-        # WineComponent::WineApi.hello(url_variables: { foo: 123 })
-        binding.pry
+      #   # so this would give us:
+      #   # WineComponent::WineApi.hello(url_variables: { foo: 123 })
+      #   binding.pry
 
-        define_singleton_method(method) do |args|
-          # create this method
-          binding.pry
-        end
+      #   define_singleton_method(method) do |args|
+      #     # create this method
+      #     binding.pry
+      #   end
 
-        self.def_delegator self, method, method
+      #   self.def_delegator self, method, method
 
-      end
+      # end
 
-      def get(id:, url_variables: nil)
+      # def get(method: :get, id: nil, url_variables: nil)
+      def register_get(method, *url_variables)
         ensure_service_document
 
-        binding.pry
+        # binding.pry
 
-        method = :get
+        # TODO
+        # take the url_variables, make sure they are symbols
+        # and then turn those into keyword args for the new method
 
         define_singleton_method(method) do |args|
           # create this method
-          binding.pry
+          # todo
+          # don't override in spec/dev
+          # and make sure we get here..?
+          puts "heyo: #{args} - #{method}"
         end
 
+        binding.pry
         self.def_delegator self, method, method
 
       end

@@ -28,15 +28,16 @@ module WineComponent
     #   struct.from_json(body)
     # end
 
-    def self.hello(id: nil, foo: nil)
+    # def self.hello(id: nil, foo: nil)
 
-    end
+    # end
 
     # TODO
     # dynamically define these methods
     # and then dynamically override the dynamically defined methods
     # in test and external in dev
-    get(id: nil, url_variables: nil)
+    register_get :get, :id, :bar
+    register_get :hello, :blah
 
 
   end

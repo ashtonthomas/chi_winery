@@ -29,6 +29,6 @@ require_relative 'wine/representers/wine_representer'
 # if test ? mock_everything : mock_only_external
 if ENV['RACK_ENV'] == 'test' || ENV['RACK_ENV'] == 'development'
   # Load mocks, override api methods
-  require_relative 'lib/pact_router'
-  require_relative 'wine/pact/wine_api_pact'
+  # require_relative 'lib/pact_router'
+  # require_relative 'wine/pact/wine_api_pact'
 end
