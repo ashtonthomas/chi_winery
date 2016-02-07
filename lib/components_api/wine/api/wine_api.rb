@@ -5,34 +5,39 @@ module WineComponent
   class WineApi
     include ComponentsApi::RequestRouter
 
-    requests_for :wine # the concept name
+    requests_for WineComponent::WineApi
 
-    # get :id
+    # def self.get(id: nil)
+    #   env = {}
+    #   env['rack.input'] = Puma::NullIO.new
+    #   env['REQUEST_METHOD'] = 'GET'
 
+    #   # use service doc for the below as well?
+    #   env['REQUEST_PATH'] = "/wines/#{id}"
+    #   env['REQUEST_URI'] = "/wines/#{id}"
+    #   env['PATH_INFO'] = "/wines/#{id}"
 
-    def self.get(id: nil)
-      env = {}
-      env['rack.input'] = Puma::NullIO.new
-      env['REQUEST_METHOD'] = 'GET'
+    #   response = ApplicationApi.call(env)
 
-      # use service doc for the below as well?
-      env['REQUEST_PATH'] = "/wines/#{id}"
-      env['REQUEST_URI'] = "/wines/#{id}"
-      env['PATH_INFO'] = "/wines/#{id}"
+    #   status = response[0]
+    #   header = response[1]
+    #   body = response[2].body.first
 
-      response = ApplicationApi.call(env)
-
-      status = response[0]
-      header = response[1]
-      body = response[2].body.first
-
-      struct = OpenStruct.new
-      struct.extend(WineRepresenter)
-      struct.from_json(body)
-    end
+    #   struct = OpenStruct.new
+    #   struct.extend(WineRepresenter)
+    #   struct.from_json(body)
+    # end
 
     def self.hello(id: nil, foo: nil)
 
     end
+
+    # TODO
+    # dynamically define these methods
+    # and then dynamically override the dynamically defined methods
+    # in test and external in dev
+    get(id: nil, url_variables: nil)
+
+
   end
 end

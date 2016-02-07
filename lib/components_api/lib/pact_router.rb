@@ -6,18 +6,6 @@ module ComponentsApi
       base.mattr_accessor :pacts
       base.pacts = Hashie::Mash.new
       base.extend(ClassMethods)
-
-      # Okay, so we actually need to know when components are "local"
-      # So we _don't_ override this, we just let the RequestRouter do its thing
-
-      # Actually, no on all of that ^
-      # We should **always** mock out component-to-component communication******
-
-      # so, no cross component communication in specs (ever)
-      # so, while in a component, don't ever use the public API.
-      # that should only ever be for HTTP requests
-      # Everything else should happen in an operation (internally)
-      # that makes sense.
     end
 
     module ClassMethods
@@ -34,6 +22,7 @@ module ComponentsApi
         concept.extend(SingleForwardable)
 
         concept.methods(false).each do |method|
+          binding.pry
           define_singleton_method(method) do |args|
             stub = extract_stub(self, concept, method, args)
 

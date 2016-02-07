@@ -1,5 +1,5 @@
-module WinePact
-  module WinesPact
+module WineComponent # may not really need to nest under this
+  module WineApiPact
     include ComponentsApi::PactRouter
 
     pact_for WineComponent::WineApi

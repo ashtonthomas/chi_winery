@@ -1,6 +1,11 @@
 module WineComponentImpl
   class WineApi < Grape::API
 
+    # The available methods on a resource
+    # _should_ be fairly standard in terms of HTTP Verbs / REST
+    # However, we have flexibility if not and we
+    # _shouldn't_ make too many hard assumptions around this
+
     resource :foo do
       desc 'Return a Hello World message'
       get do
