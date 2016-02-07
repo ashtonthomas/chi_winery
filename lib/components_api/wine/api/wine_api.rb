@@ -36,8 +36,9 @@ module WineComponent
     # dynamically define these methods
     # and then dynamically override the dynamically defined methods
     # in test and external in dev
-    register_get :get, :id, :bar
+    register_get :get, :id
     register_get :hello, :blah
+    register_get :get_foo, :id, :fu, :bar
 
 
   end

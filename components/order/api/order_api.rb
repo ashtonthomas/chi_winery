@@ -6,7 +6,7 @@ module OrderComponentImpl
       get do
         # testing: hit /orders/hello
 
-        binding.pry
+        # binding.pry
         wine = WineComponent::WineApi.get(id: 1)
 
         # Okay, now what if I want to talk to order-settings?

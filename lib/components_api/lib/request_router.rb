@@ -48,25 +48,24 @@ module ComponentsApi
 
       # def get(method: :get, id: nil, url_variables: nil)
       def register_get(method, *url_variables)
-        ensure_service_document
+        ensure_service_document #todo
 
-        # binding.pry
+        define_singleton_method(method) do |**args|
+          # check parameters
+          url_variables.each do |url_variable|
+            if !args.keys.include?(url_variable)
+              raise ArgumentError.new("key :#{url_variable} missing in call to :#{method} on #{self}")
+            end
+          end
 
-        # TODO
-        # take the url_variables, make sure they are symbols
-        # and then turn those into keyword args for the new method
+          # Now return the correct values
+          mash = Hashie::Mash.new
+          mash.name = "Got it!"
+          mash
 
-        define_singleton_method(method) do |args|
-          # create this method
-          # todo
-          # don't override in spec/dev
-          # and make sure we get here..?
-          puts "heyo: #{args} - #{method}"
         end
-
-        binding.pry
-        self.def_delegator self, method, method
-
+        # not sure why I need this in pact_router
+        # self.def_delegator self, method, method
       end
 
       # there should be no _id_ for a post
