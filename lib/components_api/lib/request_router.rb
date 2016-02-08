@@ -8,6 +8,8 @@ module ComponentsApi
 
       def register_get(method, *declared_url_variables)
         define_singleton_method(method) do |**supplied_url_variables|
+          @@service_document = nil
+
           # check parameters
           declared_url_variables.each do |required_url_variable|
             if !supplied_url_variables.keys.include?(required_url_variable)
@@ -32,6 +34,9 @@ module ComponentsApi
 
             # Request and LocalRequest
 
+            # note to self:
+            # if component_index => supplied_url_variables[:url] + [:urn_path]
+
             # will need to get the url from svc-doc
 
           end
@@ -45,8 +50,13 @@ module ComponentsApi
         self == IndexComponent::IndexApi
       end
 
+      def component_index?
+        self.to_s.match(/::.*IndexApi$/).present?
+      end
+
       def urn_path(supplied_url_variables)
         return "/" if index?
+        return supplied_url_variables[:urn_path] if component_index?
 
         # @@service_document should never have a representer
         # so it will just be a hashie::mash
@@ -55,6 +65,7 @@ module ComponentsApi
         details.url_template
         path = details.urn_path_template
 
+        # look at each_with_object
         supplied_url_variables.each do |url_variable_key, url_variable_value|
           path.gsub!(":#{url_variable_key}", url_variable_value.to_s)
         end
@@ -105,7 +116,7 @@ module ComponentsApi
       end
 
       def ensure_service_document
-        return if index?
+        return if (index? || component_index?)
 
         if @@service_document.nil? || service_document_expired?
           @@service_document = IndexComponent::IndexApi.get

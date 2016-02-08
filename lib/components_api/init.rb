@@ -18,6 +18,7 @@ require_relative 'index/api/index_api'
 require_relative 'order/api/order_api'
 
 require_relative 'wine/api/wine_api'
+require_relative 'wine/api/wine_index_api'
 require_relative 'wine/representers/wine_representer'
 
 

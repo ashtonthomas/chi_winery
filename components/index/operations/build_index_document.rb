@@ -11,66 +11,21 @@ class BuildIndexDocument
   # but the index component is just another component
   # and may live anywhere (chicken and egg??)
 
+  # so every client/server knows how to get to the index
+  # and the index knows how to get to the index of every other component
+
   def call
+
+    # corresponds to the urls in ApplicationApi
+    wine_info = WineComponent::WineIndexApi.get(
+      url: 'https://chi-winery.herokuapp.com',
+      urn_path: '/wine/index'
+    )
+
     {
       requested_at: Time.now,
-      something: "cool",
-      foo: {
-        blah: "asdf",
-        something_else: [1, 2, 3],
-        hello_wut: {
-          sup: "hey"
-        }
-      },
-
       concepts: {
-        "WineComponent::WineApi" => {
-          app_name: "app-1-chi-winery",
-          url_template: "https://app-1-chi-winery.herokuapp.com",
-          urn_path_template: "/wines/:id",
-          url_variables: {
-            id: "the ID of the wine"
-          },
-          formats: [
-            :xml,
-            :json,
-            :binary,
-            :txt
-          ],
-          available_methods: [:get, :put, :post, :delete],
-        },
-
-        wine: {
-          app_name: "app-1-chi-winery",
-          url_template: "https://app-1-chi-winery.herokuapp.com/wine/:id",
-          url_variables: {
-            id: "the ID of the wine"
-          },
-          formats: [
-            :xml,
-            :json,
-            :binary,
-            :txt
-          ],
-          available_methods: [:get, :put, :post, :delete],
-
-        },
-
-        order: {
-          app_name: "app-2-chi-winery",
-          url_template: "https://app-2-chi-winery.herokuapp.com/order/:id/:type",
-          url_variables: {
-            id: "The ID of the order",
-            type: "Idk, something?"
-          }
-        },
-
-        old_concept: {
-          app_name: nil,
-          url_template: "http://static.chi-winery/archive/old_concept.html",
-          url_variables: {}
-        }
-
+        "WineComponent::WineApi" => wine_info,
       }
     }
   end
