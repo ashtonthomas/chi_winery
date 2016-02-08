@@ -30,6 +30,8 @@ module ComponentsApi
             # issue external request
             binding.pry # todo
 
+            # Request and LocalRequest
+
             # will need to get the url from svc-doc
 
           end
