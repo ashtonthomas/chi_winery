@@ -9,6 +9,8 @@ module OrderComponentImpl
         # binding.pry
         wine = WineComponent::WineApi.get(id: 1)
 
+        sugar = SugarComponent::SugarApi.get(id: 123)
+
 
 
         # Okay, now what if I want to talk to order-settings?

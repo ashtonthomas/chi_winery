@@ -1,4 +1,4 @@
-# Welcome to Napa
+# Mondavi
 
 ```
 heroku create app-1-chi-winery

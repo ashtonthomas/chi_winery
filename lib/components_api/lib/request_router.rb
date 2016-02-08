@@ -25,7 +25,6 @@ module ComponentsApi
             # mock request and satisfy locally
             issue_local_request(
               http_verb: 'GET',
-              url_template: "https://chi-winery.herokuapp.com",
               urn_path: urn_path(supplied_url_variables)
             )
           else
@@ -38,6 +37,12 @@ module ComponentsApi
             # if component_index => supplied_url_variables[:url] + [:urn_path]
 
             # will need to get the url from svc-doc
+
+            issue_external_request(
+              http_verb: 'GET',
+              url: url(supplied_url_variables),
+              urn_path: urn_path(supplied_url_variables)
+            )
 
           end
 
@@ -73,7 +78,35 @@ module ComponentsApi
         path
       end
 
-      def issue_local_request(http_verb: nil, url_template: nil, urn_path: nil)
+      def url(supplied_url_variables)
+        return "https://chi-winery.herokuapp.com" if index?
+        return supplied_url_variables[:url] if component_index?
+
+        details = @@service_document.concepts[self.to_s]
+        url = details.url_template
+
+        # look at each_with_object
+        # maybe we change from url_variable.. to request or 'uri'
+        supplied_url_variables.each do |url_variable_key, url_variable_value|
+          url.gsub!(":#{url_variable_key}", url_variable_value.to_s)
+        end
+
+        url
+      end
+
+      def issue_external_request(http_verb: nil, url: nil, urn_path: nil)
+        conn = Faraday.new(:url => url) do |faraday|
+          faraday.request  :url_encoded             # form-encode POST params
+          faraday.response :logger                  # log requests to STDOUT
+          faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+        end
+
+        binding.pry
+        response = conn.get urn_path
+        response.body
+      end
+
+      def issue_local_request(http_verb: nil, urn_path: nil)
         env = {}
         env['rack.input'] = Puma::NullIO.new
 
