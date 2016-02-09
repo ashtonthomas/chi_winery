@@ -1,6 +1,6 @@
 module WineComponentImpl
   class WineApi < Grape::API
-    include ComponentsApi::Api
+    include Mondavi::Api
 
     # TODO
     # If we want to dynamically generate the ApplicationApi,

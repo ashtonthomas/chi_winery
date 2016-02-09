@@ -3,7 +3,7 @@
 # 3) Foreign: use ServiceDocument to request
 module WineComponent
   class WineApi
-    include ComponentsApi::RequestRouter
+    include Mondavi::RequestRouter
 
     # first parameter is the method name to be called
     # the remaining are the url_variables

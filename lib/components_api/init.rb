@@ -10,7 +10,7 @@ Kernel::silence_warnings { Imprint::Tracer.const_set('TRACER_HEADER', 'HTTP_X_B3
 # Load stuff
 require_relative 'lib/request_router'
 require_relative 'lib/is_local_component'
-require_relative 'lib/api'
+# require_relative 'lib/api'
 
 require_relative 'request'
 
