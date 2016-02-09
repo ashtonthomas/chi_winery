@@ -1,5 +1,23 @@
 # Mondavi
 
+
+Mondavi is designed to be a lightweight framework for structuring a multi micro service internal system.
+It is designed to work with the lightweight ruby, rack, rails alternative napa framework which is designed to
+work with the Grape http-based API/routing framework as well as Roar/Representer for returning payloads as well as parsing those payloads.
+
+
+
+*why make this a gem?
+could add some rake tasks to show route-like stuff
+
+
+drawbacks:
+- not easily knowing what component is where (diagnosing errors/performance in production)
+- gem dependencies impact multiple components (encourages more consistency - not that bad?)
+- compared to pacto: pacto lets you know immediately when you break something
+  (but the fact that this is a virtue is a problem.. -
+   Mondavi prevents breaking and allows for evolution over shorter periods of time without breaking things)
+
 ```
 heroku create app-1-chi-winery
 
