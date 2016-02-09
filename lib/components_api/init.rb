@@ -10,6 +10,7 @@ Kernel::silence_warnings { Imprint::Tracer.const_set('TRACER_HEADER', 'HTTP_X_B3
 # Load stuff
 require_relative 'lib/request_router'
 require_relative 'lib/is_local_component'
+require_relative 'lib/api'
 
 require_relative 'request'
 
@@ -35,6 +36,6 @@ require_relative 'sugar/api/sugar_index_api'
 # if test ? mock_everything : mock_only_external
 if ENV['RACK_ENV'] == 'test' || ENV['RACK_ENV'] == 'development'
   # Load mocks, override api methods
-  # require_relative 'lib/pact_router'
-  # require_relative 'wine/pact/wine_api_pact'
+  require_relative 'lib/pact_router'
+  require_relative 'wine/pact/wine_api_pact'
 end

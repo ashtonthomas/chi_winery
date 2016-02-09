@@ -1,5 +1,7 @@
 module WineComponentImpl
   class WineIndexApi < Grape::API
+    # This can be dynamically generated using the Grape::API
+    # and then teh AppName/AppURL...
     get '/' do
       {
         app_name: "app-1-chi-winery", #app name may no longer be needed if we use get_const

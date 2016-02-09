@@ -5,10 +5,22 @@ Mondavi is designed to be a lightweight framework for structuring a multi micro 
 It is designed to work with the lightweight ruby, rack, rails alternative napa framework which is designed to
 work with the Grape http-based API/routing framework as well as Roar/Representer for returning payloads as well as parsing those payloads.
 
+- Ruby, Rack, Grape, Napa microservices
+- Avoid Rails overhead and running headfirst into a monlith that is slower and slower to evolve with increasing brittleness
+- Avoid microservice explosion and being stuck with the incorrect (or changing) boundaries you draw around your services
+-- Things start as expirements, then evovle, but your stuck with decisons from the past, which were made with limited, now out of date information
+
+
+Mondavi imposes a few requirements in terms of some lightweight technologies and the structure of your applications
+It also provides the equivalent of a 'api-client-interface-thing' (a shared library that helps you call out to all other internal services)
 
 
 *why make this a gem?
 could add some rake tasks to show route-like stuff
+- dynamically generate response for ComponentIndex
+- lib files + specs
+- dynamic ApplicationApi file
+- spec helper stuff?
 
 
 drawbacks:
@@ -17,6 +29,13 @@ drawbacks:
 - compared to pacto: pacto lets you know immediately when you break something
   (but the fact that this is a virtue is a problem.. -
    Mondavi prevents breaking and allows for evolution over shorter periods of time without breaking things)
+
+
+Some assumptions:
+- Ruby, Rack, Grape, Napa, Roar
+- Roar representers are used to serialize and deserilize
+- Organization of Components with Index and ComponentIndex'es
+
 
 ```
 heroku create app-1-chi-winery
@@ -99,3 +118,31 @@ It sucks when you want to add a 'component' and not a full services
 (because of the maintenance overhead).
 Would be great to be able to stick a component anywhere. This would be great for experimental components.
 We can just have a misc server where we stick components. It shouldn't matter what components are physically next to each other.
+
+
+
+Models should only be involved with Access/Persistence (no business logic, not even validations)
+- We should use a Validation MethodObject
+- We should be using CreateFoo MethodObject which can handle the equivalent of callbacks.
+- FooModel should be prefixed with a compoennt: FoodingComponentImpl::FooModel
+- You should never all a model in a different component module (you will hate yourself)
+- ((seriously, don't do it - The component structure is about managing your dependencies as well - use the Api of the component dependency - no exceptions))
+
+# Awesome-print
+- can we include this?
+
+# dry-component (dry-container/auto_inject)
+- https://github.com/dryrb/dry-component
+- maybe we should have a FooComponent < Dry::Component::Container
+- FooComponent.register('foo.')
+
+# Notes about an Application/Server (app-1-my-org.*)
+
+- Gemfile
+-- Can we build something like the Gemfile for components
+-- and have a dynamic gemfile that is generated on demand (and alerts to any incompatibilities)
+-- Is there a way to actually do this??
+
+- ApplicationApi
+-- Knows about all the local components (can we do this dynamically? - build this into Mondavi?)
+

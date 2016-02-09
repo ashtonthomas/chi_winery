@@ -9,7 +9,7 @@ module ComponentsApi
     end
 
     module ClassMethods
-      def pact_for concept
+      def pact_for(concept)
         is_test = ENV['RACK_ENV'] == 'test'
         is_external = !IsLocalComponent.call(target_concept: concept)
 

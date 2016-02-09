@@ -1,5 +1,12 @@
 module WineComponentImpl
   class WineApi < Grape::API
+    include ComponentsApi::Api
+
+    # TODO
+    # If we want to dynamically generate the ApplicationApi,
+    # We need to have the url prefix defined here
+
+    url_prefix '/wine/wines'
 
     # The available methods on a resource
     # _should_ be fairly standard in terms of HTTP Verbs / REST

@@ -9,6 +9,8 @@ gem 'honeybadger', '~> 1.16.7'
 gem 'json'
 gem 'napa', github: 'ashtonthomas/napa', branch: 'copy_darbys_unpin_dependencies'
 
+gem 'mondavi'
+
 gem 'grape', '~> 0.13.0'
 
 gem 'roar', '~> 0.12.0'

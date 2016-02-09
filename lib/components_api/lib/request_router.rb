@@ -29,7 +29,7 @@ module ComponentsApi
             )
           else
             # issue external request
-            binding.pry # todo
+            # binding.pry # todo
 
             # Request and LocalRequest
 
@@ -101,9 +101,9 @@ module ComponentsApi
           faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
         end
 
-        binding.pry
-        response = conn.get urn_path
-        response.body
+        # binding.pry
+        # response = conn.get urn_path
+        # response.body
       end
 
       def issue_local_request(http_verb: nil, urn_path: nil)
