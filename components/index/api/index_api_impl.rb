@@ -1,5 +1,5 @@
-module IndexComponentImpl
-  class IndexApi < Grape::API
+module IndexComponent
+  class IndexApiImpl < Grape::API
     get '/' do
       # We need to utilize the service_map
       # we need to return all concepts which may be allowed

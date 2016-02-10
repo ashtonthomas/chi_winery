@@ -1,5 +1,5 @@
-module OrderComponentImpl
-  class OrderSettingsApi < Grape::API
+module OrderComponent
+  class OrderSettingsApiImpl < Grape::API
     # the following declarations are equivalent to the defaults
 
     content_type :xml, 'application/xml'

@@ -3,10 +3,10 @@ class ApplicationApi < Grape::API
   extend Napa::GrapeExtenders
 
   # I would like to generate this dynamically
-  mount IndexComponentImpl::IndexApi => '/index'
+  mount IndexComponent::IndexApiImpl => '/index'
 
-  mount OrderComponentImpl::OrderApi => '/orders/'
-  mount OrderComponentImpl::OrderSettingsApi => '/order-settings/'
+  mount OrderComponent::OrderApiImpl => '/orders/'
+  mount OrderComponent::OrderSettingsApiImpl => '/order-settings/'
 
   mount WineComponent::WineApiImpl => '/wine/wines'
 

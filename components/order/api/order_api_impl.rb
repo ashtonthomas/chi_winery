@@ -1,5 +1,5 @@
-module OrderComponentImpl
-  class OrderApi < Grape::API
+module OrderComponent
+  class OrderApiImpl < Grape::API
 
     resource :hello do
       desc 'Return a Hello World message'
@@ -9,8 +9,8 @@ module OrderComponentImpl
         # binding.pry
         wine = WineComponent::WineApi.get(id: 1)
 
-        sugar = SugarComponent::SugarApi.get(id: 123)
 
+        sugar = SugarComponent::SugarApi.get(id: 123)
 
 
         # Okay, now what if I want to talk to order-settings?
@@ -38,7 +38,7 @@ module OrderComponentImpl
         # OrdersApi::Orders
         # WinesApi::Wines.get(id: 1)
 
-        sample_order = OrderComponentImpl::ShowSampleOrder.new(
+        sample_order = OrderComponent::ShowSampleOrder.new(
           name: "Coffee (but pair with: #{wine.name})",
           quantity: 15
         )
