@@ -4,7 +4,7 @@ def app
   ApplicationApi
 end
 
-describe WineComponentImpl::WineApi do
+describe WineComponent::WineApiImpl do
   include Rack::Test::Methods
 
   # These producer specs will need to draw from both:

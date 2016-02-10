@@ -15,14 +15,16 @@ Dir['./config/initializers/**/*.rb'].map { |file| require file }
 Dir['./config/middleware/**/*.rb'].map { |file| require file }
 
 # autoload app
+#   components/index
+#   components/order
+#   components/wine
 relative_load_paths = %w(
-  components/index
-  components/order
-  components/wine
   lib/components_api
   lib/
   app/apis
 )
+
+Dir['./components/**/**/*.rb'].map { |file| require file }
 
 ActiveSupport::Dependencies.autoload_paths += relative_load_paths
 

@@ -8,10 +8,10 @@ class ApplicationApi < Grape::API
   mount OrderComponentImpl::OrderApi => '/orders/'
   mount OrderComponentImpl::OrderSettingsApi => '/order-settings/'
 
-  mount WineComponentImpl::WineApi => '/wine/wines'
+  mount WineComponent::WineApiImpl => '/wine/wines'
 
   # Dynamically generate the component index based on the `rake routes`
-  mount WineComponentImpl::WineIndexApi => '/wine/index'
+  mount WineComponent::WineIndexApiImpl => '/wine/index'
 
   add_swagger_documentation
 end

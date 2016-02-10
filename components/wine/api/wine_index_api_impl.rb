@@ -1,5 +1,5 @@
-module WineComponentImpl
-  class WineIndexApi < Grape::API
+module WineComponent
+  class WineIndexApiImpl < Grape::API
     # This can be dynamically generated using the Grape::API
     # and then teh AppName/AppURL...
     get '/' do

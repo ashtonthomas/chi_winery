@@ -21,7 +21,6 @@ require_relative 'wine/representers/wine_representer'
 require_relative 'sugar/api/sugar_api'
 require_relative 'sugar/api/sugar_index_api'
 
-
 # Note
 # I'm not sure why putting this inside a class doesn't evaluate
 # Maybe it has something to do with the different in loading

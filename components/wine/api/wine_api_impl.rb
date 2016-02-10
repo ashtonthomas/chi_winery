@@ -1,5 +1,5 @@
-module WineComponentImpl
-  class WineApi < Grape::API
+module WineComponent
+  class WineApiImpl < Grape::API
     include Mondavi::Api
 
     # TODO
