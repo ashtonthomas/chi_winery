@@ -22,7 +22,7 @@ GIT
 PATH
   remote: /Users/ashton/git/ashtonthomas/mondavi
   specs:
-    mondavi (0.1.4)
+    mondavi (0.1.5)
       activesupport
       celluloid (>= 0.17.0)
       celluloid-io
