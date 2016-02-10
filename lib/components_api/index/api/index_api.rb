@@ -4,7 +4,7 @@ module IndexComponent
     # Is there a chicken and egg problem?
     # I don't think so
     # we just make that request (and cache for 24/48 hours)
-    include ComponentsApi::RequestRouter
+    include Mondavi::RequestRouter
 
     # but we don't need to follow the same format
     # because we know we are always making the external request

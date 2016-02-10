@@ -19,6 +19,19 @@ GIT
       thor
       virtus
 
+PATH
+  remote: /Users/ashton/git/ashtonthomas/mondavi
+  specs:
+    mondavi (0.1.4)
+      activesupport
+      celluloid (>= 0.17.0)
+      celluloid-io
+      faraday
+      faraday_middleware
+      hashie
+      imprint
+      tannin
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -131,15 +144,6 @@ GEM
       multi_json (~> 1.10)
     method_source (0.8.2)
     minitest (4.7.5)
-    mondavi (0.1.4)
-      activesupport
-      celluloid (>= 0.17.0)
-      celluloid-io
-      faraday
-      faraday_middleware
-      hashie
-      imprint
-      tannin
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -232,19 +236,14 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 4.0.0)
-  celluloid
-  celluloid-io
   database_cleaner
   factory_girl
-  faraday
-  faraday_middleware
   grape (~> 0.13.0)
   grape-swagger
   hashie-forbidden_attributes
   honeybadger (~> 1.16.7)
-  imprint
   json
-  mondavi
+  mondavi!
   napa!
   naught
   pg

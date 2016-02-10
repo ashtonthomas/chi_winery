@@ -1,6 +1,6 @@
 module WineComponent # may not really need to nest under this
   module WineApiPact
-    include ComponentsApi::PactRouter
+    include Mondavi::PactRouter
 
     pact_for WineComponent::WineApi
 

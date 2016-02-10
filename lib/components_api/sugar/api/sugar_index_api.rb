@@ -1,6 +1,6 @@
 module SugarComponent
   class SugarIndexApi
-    include ComponentsApi::RequestRouter
+    include Mondavi::RequestRouter
 
     register_get :get, :url, :urn_path
   end
